@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0c0d0e"><title>LΛMP — Build your own space</title><style>@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{font-family:'DM Sans',Arial,sans-serif;color:#e9e9e9;background:#0b0c0d;font-synthesis:none}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 65% 0%,#222426 0%,#0b0c0d 48%)}button,a{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.shell{max-width:1560px;margin:auto;padding:0 4.4%}header{height:83px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #3335}.logo,.footer-logo{font-family:Manrope,sans-serif;font-size:25px;letter-spacing:.38em;font-weight:600}.logo span{letter-spacing:.3em}nav{display:flex;gap:36px;font-size:12px;color:#9e9e9e}nav a:first-child,nav a:hover{color:#fff}.right{display:flex;align-items:center;gap:22px}.right button{background:none;border:0;color:#fff;font-size:12px}.right button span{color:#888;margin-left:7px}.head-label,.kicker,.stage-top,.stage-bottom,.projects-heading,.index,.pill,.unavailable,.modal-top,.modal-status{font-size:10px;letter-spacing:.15em}.head-label{border:1px solid #444;padding:9px 12px;color:#bbb}.intro{padding:48px 0 30px;max-width:850px}.kicker{display:flex;gap:12px;align-items:center;color:#a6a7a9}.kicker i,.stage-dot i,.side-bottom i,.dash-foot i{width:6px;height:6px;background:#c6c6c6;border-radius:50%;display:inline-block}h1,h2,h3,p{margin-top:0}h1{font-family:Manrope,sans-serif;font-size:clamp(42px,5.2vw,78px);line-height:1.08;letter-spacing:-.065em;font-weight:500;margin:20px 0 16px}h1 em{font-style:normal;color:#77797c}.intro p{font-size:14px;color:#aaaeb1;line-height:1.7;max-width:525px;margin:0}.stage{border:1px solid #3a3c3f;background:#151719;overflow:hidden}.stage-top,.stage-bottom{display:flex;justify-content:space-between;align-items:center;color:#9a9da0;padding:14px 22px}.stage-top{border-bottom:1px solid #333}.stage-dot{display:flex;gap:9px;align-items:center}.stage-dot i{background:#969da3}.server-panel{margin:16px auto 0;width:84%;height:236px;display:grid;grid-template-columns:175px 1fr;background:#101214;border:1px solid #3b3d40;box-shadow:0 14px 42px #0009}aside{border-right:1px solid #333;padding:16px 12px;position:relative}.mini-logo{font-size:13px;letter-spacing:.25em;margin:0 8px 21px}.mini-logo span{font-size:8px;letter-spacing:.08em;color:#777}.side-item{display:flex;gap:12px;align-items:center;padding:9px 10px;font-size:10px;color:#777}.side-item b{font-size:14px;font-weight:400}.side-item.selected{background:#292b2e;color:#eee}.side-bottom{position:absolute;bottom:15px;left:21px;color:#8d8d8d;font-size:8px;letter-spacing:.12em;display:flex;gap:8px;align-items:center}.side-bottom i{background:#8db49d}.dashboard{padding:22px 28px}.dash-heading{display:flex;justify-content:space-between;align-items:center}.dash-heading small,.dash-card small{font-size:9px;letter-spacing:.14em;color:#777}.dash-heading h2{font-size:18px;font-weight:500;letter-spacing:-.025em;margin:8px 0 15px}.dash-icon{font-size:23px;color:#666}.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.dash-card{background:#1a1d1f;border:1px solid #333639;padding:12px 15px;min-height:68px}.dash-card strong{font-size:13px;font-weight:500;display:block;margin-top:8px}.dash-foot{font-size:9px;color:#888;display:flex;gap:7px;align-items:center;margin-top:9px}.dash-foot i{background:#7d9d88}.drive{font-size:11px;margin:8px 0;display:flex;gap:8px}.drive span:first-child{color:#bbb}.drive-line{height:3px;background:#333}.drive-line span{display:block;background:#999;width:38%;height:100%}.muted{font-size:9px;color:#777}.dash-card.wide{grid-column:span 2;min-height:42px;padding:10px 15px}.activity-line{display:flex;align-items:center;gap:10px;font-size:10px;margin-top:8px;color:#aaa}.activity-icon{color:#ccc}.activity-time{margin-left:auto;font-size:9px;letter-spacing:.12em;color:#777}.stage-bottom{font-size:9px}.projects{padding-top:26px}.projects-heading{display:flex;justify-content:space-between;color:#888;margin-bottom:12px}.project-grid{display:grid;grid-template-columns:1.12fr 1fr 1fr;gap:10px}.project{background:#171819;border:1px solid #333638;min-height:195px;padding:17px 18px;display:flex;flex-direction:column;justify-content:space-between}.main-project{background:#e7e7e5;color:#111}.project-top,.project-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px}.index{color:#8d8d8d;font-size:9px}.main-project .index{color:#666}.pill{border:1px solid #555;padding:5px 7px;font-size:8px;white-space:nowrap}.main-project .pill{border-color:#999}.muted-pill{color:#8c8c8c}.project-main{display:flex;gap:14px;align-items:center;padding:16px 0}.glyph{width:47px;height:47px;flex:none;border:1px solid #505357;display:grid;place-items:center;font-size:29px;font-weight:300;color:#b7b9bc}.main-project .glyph{border-color:#999;color:#333}.project h3{font-size:16px;font-weight:600;letter-spacing:-.03em;margin:0 0 7px}.project p{font-size:11px;line-height:1.5;color:#939597;margin:0;max-width:270px}.main-project p{color:#565656}.link-button{background:none;border:0;color:inherit;font-size:11px;padding:4px 0;text-decoration:underline;text-underline-offset:4px}.link-button span{margin-left:5px}.download{background:#111;color:#fff;border:1px solid #111;padding:10px 11px;font-size:10px;white-space:nowrap}.download:disabled{cursor:not-allowed;opacity:.65}.unavailable{color:#777;font-size:8px}footer{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid #333;margin-top:22px;padding:18px 0 22px;color:#858585;font-size:10px}.footer-logo{font-size:13px;color:#ddd}dialog{background:#e8e8e6;color:#111;border:0;width:min(490px,calc(100% - 28px));padding:28px;box-shadow:0 30px 100px #000b}dialog::backdrop{background:#000b}.modal-top{display:flex;justify-content:space-between;align-items:center;color:#777}.modal-top button{border:0;background:none;font-size:18px}dialog h2{font-family:Manrope,sans-serif;font-size:32px;font-weight:600;letter-spacing:-.05em;margin:35px 0 15px}dialog p{line-height:1.75;color:#4e4e4e;font-size:14px}.modal-status{border-top:1px solid #bbb;padding-top:16px;margin-top:26px}.modal-dismiss{background:#111;color:#fff;border:0;padding:12px 20px;margin-top:24px}
+@media(max-width:900px){.shell{padding:0 22px}.server-panel{width:94%}.project-grid{grid-template-columns:1fr 1fr}.main-project{grid-column:span 2}.project{min-height:170px}}@media(max-width:600px){header{height:66px}nav{display:none}.head-label{display:none}.intro{padding:38px 0 24px}h1{font-size:48px}.intro p{font-size:13px}.stage-top,.stage-bottom{font-size:8px;padding:11px}.server-panel{height:220px;width:100%;margin:0;grid-template-columns:92px 1fr}.mini-logo{font-size:9px;margin:0 0 17px}.mini-logo span{display:none}aside{padding:14px 6px}.side-item{font-size:9px;padding:8px 4px;gap:4px}.side-item b{font-size:12px}.side-bottom{left:8px;font-size:6px}.dashboard{padding:16px 10px}.dash-heading h2{font-size:13px}.dash-card{padding:8px;min-height:61px}.dash-card strong{font-size:10px}.dash-foot{font-size:7px}.dash-card small{font-size:7px}.drive{font-size:9px}.activity-line{font-size:8px}.stage-bottom span:last-child{display:none}.project-grid{grid-template-columns:1fr}.main-project{grid-column:auto}.project{min-height:170px}.project-main{padding:16px 0}footer{flex-wrap:wrap}.download{font-size:9px}}
+nav .nav-action{background:none;border:0;padding:0;color:#9e9e9e;font-size:12px;cursor:pointer}nav .nav-action:hover,nav .nav-action:focus-visible{color:white}
+#library{background:#111315;color:#ececec;width:min(1000px,calc(100% - 32px));max-width:none;padding:30px 34px;border:1px solid #444;max-height:90vh;overflow-y:auto}
+#library::backdrop{background:rgba(0,0,0,.84);backdrop-filter:blur(9px)}
+#library .modal-top{color:#aaa}#library .modal-top button{color:#eee}
+.library-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:20px 0 30px}
+#library .library-heading h2{font-size:clamp(32px,4vw,52px);font-weight:500;margin:0 0 8px}
+#library .library-heading p{color:#999;font-size:13px;margin:0;max-width:490px;line-height:1.6}
+.library-counter{color:#777;font-size:11px;white-space:nowrap}
+.library-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.library-item{text-align:left;color:#ddd;background:#1b1d1f;border:1px solid #3c3e40;min-height:250px;padding:19px;display:flex;flex-direction:column;align-items:flex-start;transition:background .18s,border-color .18s,transform .18s}
+.library-item:hover,.library-item:focus-visible{background:#27292b;border-color:#a7a7a7;transform:translateY(-2px)}
+.library-num,.library-arrow{font-size:9px;letter-spacing:.14em;color:#939393}
+.library-icon{font-size:43px;margin:22px 0 15px;color:#d5d5d5}
+.library-item strong{font-size:18px;font-weight:500;margin-bottom:9px}
+.library-summary{font-size:12px;line-height:1.6;color:#969696}
+.library-arrow{margin-top:auto;padding-top:23px;color:#d0d0d0}
+.library-bottom{border-top:1px solid #3a3a3a;margin-top:24px;padding-top:16px;display:flex;align-items:center;justify-content:space-between;gap:15px;font-size:9px;letter-spacing:.12em;color:#888}
+.library-bottom button{background:none;border:0;color:#ddd;font-size:11px}
+#info{width:min(650px,calc(100% - 32px));max-height:88vh;overflow-y:auto}
+#info .modal-top{gap:15px}#modal-label{margin-left:auto}
+.back-link{border:0;background:none;color:#555;font-size:11px;cursor:pointer}
+.back-link:hover{text-decoration:underline}
+.detail-columns{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:26px;padding-top:22px;border-top:1px solid #bbb}
+.detail-columns small{font-size:9px;letter-spacing:.14em;color:#777}
+.detail-columns p{font-size:12px;line-height:1.7;margin-top:10px}
+@media(max-width:650px){#library{padding:22px}.library-grid{grid-template-columns:1fr}.library-item{min-height:150px}.library-icon{margin:10px 0;font-size:26px}.library-arrow{padding-top:12px}.library-heading{margin:20px 0}.detail-columns{grid-template-columns:1fr;gap:5px}}
+
+/* Product showcase — real HTML/CSS mockups, not generated imagery */
+.showcase .slide-window{overflow:hidden;position:relative}
+.showcase .slide-track{display:flex;transition:transform .65s cubic-bezier(.22,.72,.16,1);will-change:transform}
+.showcase .slide{min-width:100%;width:100%;flex-shrink:0;overflow:hidden}
+.showcase .slide-layout{height:300px;position:relative;display:flex;align-items:center;justify-content:flex-end;padding:16px 5%;gap:3%}
+.showcase .slide-caption{width:27%;flex:none;align-self:center;display:flex;flex-direction:column;gap:12px}
+.slide-number{font-size:10px;letter-spacing:.15em;color:#888}
+.slide-caption strong{font:500 clamp(19px,2.15vw,31px)/1.17 Manrope,sans-serif;letter-spacing:-.05em}
+.slide-caption small{font-size:12px;color:#96999c;line-height:1.55}
+.showcase .server-panel{margin:0;width:70%;height:252px;flex:none}
+.showcase .dashboard{padding:19px 22px}
+.showcase .dash-heading h2{font-size:17px}
+.showcase .dash-card{min-height:68px}
+.showcase .stage-bottom{border-top:1px solid #333}
+.showcase-controls{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #353638;padding:7px 22px}
+.showcase-dots{display:flex;align-items:center;gap:9px}
+.slide-dot{width:25px;height:18px;position:relative;background:transparent;border:0;padding:0;cursor:pointer}
+.slide-dot:after{content:"";position:absolute;top:8px;left:0;width:100%;height:2px;background:#505255;transition:background .2s}
+.slide-dot.is-active:after{background:#eee}
+.showcase-arrows{display:flex;gap:5px}
+.showcase-arrows button{border:1px solid #444;background:#1b1d1f;color:#ddd;width:32px;height:26px;cursor:pointer}
+.showcase-arrows button:hover,.showcase-arrows button:focus-visible{background:#3b3d3f}
+.devices-layout{background:radial-gradient(ellipse at 74% 48%,#24272a 0%,#151719 58%)}
+.devices-scene{position:relative;width:68%;height:100%;display:flex;align-items:center;justify-content:center;padding:15px 1%}
+.laptop{position:relative;width:70%;max-width:580px;margin-right:-12px;z-index:1;transform:translateY(9px)}
+.laptop-screen{border:6px solid #44494e;border-bottom-width:11px;border-radius:10px 10px 3px 3px;background:#101214;box-shadow:0 20px 36px #0008;aspect-ratio:1.75;overflow:hidden}
+.device-osbar{height:25px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #343638;padding:0 12px;font-size:10px;letter-spacing:.2em;color:#e1e1e1}
+.device-osbar i{font-style:normal;letter-spacing:.08em;color:#8a8c8e}
+.device-oscontent{padding:14px 6%;height:calc(100% - 25px)}
+.device-oscontent>small,.phone-inner>small,.storage-title small{font-size:9px;letter-spacing:.13em;color:#8b8d8f}
+.device-oscontent h3{font-size:clamp(12px,1.4vw,21px);font-weight:500;letter-spacing:-.04em;margin:8px 0 12px}
+.device-stats{display:flex;gap:8px}
+.device-stats>div{background:#1b1e20;border:1px solid #343638;flex:1;min-height:70px;padding:10px;display:flex;flex-direction:column;gap:5px}
+.device-stats small{font-size:8px;color:#888;letter-spacing:.13em}
+.device-stats b{font-size:16px;font-weight:400}
+.device-stats span{font-size:9px;color:#aaa}
+.device-osfoot{font-size:9px;color:#aaa;display:flex;align-items:center;gap:6px;margin-top:9px}
+.online-dot,.phone-status i,.storage-note i{width:6px;height:6px;border-radius:50%;background:#88a992;display:inline-block;flex:none}
+.laptop-base{height:9px;background:linear-gradient(#b4b7ba,#52565b);width:112%;margin-left:-6%;border-radius:2px 2px 12px 12px;box-shadow:0 10px 13px #0007}
+.connection-trace{width:12%;height:2px;background:#6e757a;position:relative;z-index:0;opacity:.7}
+.connection-trace i{position:absolute;right:-2px;top:-3px;width:8px;height:8px;border:1px solid #b1c0b7;border-radius:50%;background:#222}
+.phone{width:20%;min-width:92px;max-width:128px;height:220px;border:4px solid #62676b;border-radius:20px;background:#101214;box-shadow:0 15px 30px #0009;z-index:2;overflow:hidden;position:relative}
+.phone-top{height:12px;display:flex;justify-content:center}
+.phone-speaker{height:4px;width:24px;background:#45494d;border-radius:8px;margin-top:3px}
+.phone-inner{padding:5px 9px}
+.phone-brand{font-size:12px;letter-spacing:.16em;margin-bottom:16px}
+.phone-brand small{font-size:6px;letter-spacing:.06em;color:#888}
+.phone-inner>small{font-size:7px}
+.phone-inner h4{font-size:12px;margin:6px 0 8px;font-weight:500}
+.phone-status{display:flex;gap:5px;align-items:center;font-size:8px;color:#b1b1b1;margin-bottom:15px}
+.phone-row{display:flex;align-items:center;gap:7px;border-top:1px solid #343638;padding:9px 0;font-size:9px}
+.phone-row span:last-child{margin-left:auto;color:#888}
+.phone-bottom{position:absolute;bottom:6px;left:36%;width:28%;height:3px;border-radius:5px;background:#bbb}
+.storage-layout{background:radial-gradient(ellipse at 76% 40%,#232528,#151719 58%)}
+.storage-preview{width:69%;height:240px;border:1px solid #45484b;background:#101214;box-shadow:0 18px 35px #0007;padding:17px 20px}
+.storage-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;padding-bottom:13px;font-size:12px;letter-spacing:.12em}
+.storage-head i{font-style:normal;color:#929292}
+.storage-title{margin:16px 0}
+.storage-title h3{font-size:20px;letter-spacing:-.04em;font-weight:500;margin:5px 0}
+.storage-folders{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.storage-folders>div{border:1px solid #36383a;background:#1c1f21;padding:10px;display:flex;flex-direction:column;gap:5px}
+.storage-folders span{font-size:20px}
+.storage-folders strong{font-size:11px;font-weight:500}
+.storage-folders small{font-size:9px;color:#888}
+.storage-note{display:flex;align-items:center;gap:8px;margin-top:13px;color:#929292;font-size:10px}
+@media(max-width:850px){.showcase .slide-layout{height:270px}.showcase .slide-caption{width:26%}.showcase .server-panel{width:71%;height:230px;grid-template-columns:115px 1fr}.showcase .dashboard{padding:14px}.showcase .dash-heading h2{font-size:14px}.showcase .side-item{font-size:9px}.showcase .mini-logo{font-size:10px}.showcase .dash-card{padding:9px;min-height:60px}.showcase .dash-card strong{font-size:10px}.devices-scene{width:72%}.storage-preview{width:72%}}
+@media(max-width:600px){.showcase .slide-layout{height:390px;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;padding:22px 15px;gap:14px}.showcase .slide-caption{width:100%;gap:4px}.slide-caption strong{font-size:21px}.slide-caption small{font-size:11px}.showcase .server-panel{width:100%;height:260px;grid-template-columns:90px 1fr}.showcase .dashboard{padding:15px 8px}.showcase .dash-heading h2{font-size:13px}.showcase .dash-card{min-height:60px}.showcase .dash-card strong{font-size:10px}.showcase .side-item{gap:5px;font-size:9px}.showcase .mini-logo{font-size:9px}.showcase .side-bottom{font-size:6px}.devices-scene{width:100%;height:260px;padding:0}.laptop{width:73%}.phone{width:24%;height:204px}.connection-trace{width:7%}.storage-preview{width:100%;height:245px;padding:14px}.storage-title h3{font-size:17px}.storage-folders{gap:5px}.storage-folders>div{padding:8px}.storage-folders strong{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.showcase .slide-track{transition:transform .85s ease-in-out}.library-item{transition:transform .85s ease-in-out}}
+
+/* v5: carousel advances automatically; controls intentionally removed. */
+.showcase .slide-track { transition: transform .65s cubic-bezier(.22,.72,.16,1); }
+@media(prefers-reduced-motion:reduce){.showcase .slide-track{transition:transform .85s ease-in-out}}
+
+/* LAMP_NAV_V8: full-page horizontal navigation; original showcase untouched */
+nav{position:relative;align-items:center;padding-bottom:3px}
+nav a,nav .nav-action{white-space:nowrap;transition:color .25s ease}
+nav a:first-child{color:#9e9e9e}
+nav .lamp-current{color:#fff!important}
+.lamp-nav-line{position:absolute;bottom:-16px;left:0;height:2px;width:0;background:#f0f0f0;border-radius:3px;pointer-events:none;transition:transform .62s cubic-bezier(.22,1,.36,1),width .62s cubic-bezier(.22,1,.36,1)}
+.lamp-page-viewport{overflow:hidden;width:100%;position:relative;transition:height .65s cubic-bezier(.22,1,.36,1)}
+.lamp-page-track{display:flex;width:100%;align-items:flex-start;transition:transform .8s cubic-bezier(.22,1,.36,1);will-change:transform}
+.lamp-page-track>#home,.lamp-page{flex:0 0 100%;width:100%;min-width:0}
+.lamp-page{padding:51px 0 35px;color:#ececec}
+.lamp-eyebrow{font-size:10px;letter-spacing:.18em;color:#9b9da0;display:flex;gap:12px;align-items:center}
+.lamp-eyebrow:before{content:'';width:6px;height:6px;background:#a4a7a9;border-radius:50%}
+.lamp-page h1{font-size:clamp(43px,5.3vw,78px);max-width:950px;margin:22px 0 19px}
+.lamp-page h1 em{color:#77797c;font-style:normal}
+.lamp-lead{max-width:690px;color:#a9abad;font-size:15px;line-height:1.85;margin-bottom:34px}
+.lamp-section-head{display:flex;justify-content:space-between;align-items:center;color:#85878a;font-size:10px;letter-spacing:.15em;margin:33px 0 13px}
+.lamp-feature-product{border:1px solid #393c3e;background:#151719;margin-bottom:12px;overflow:hidden}
+.lamp-feature-product:first-of-type{background:#1c1e20}
+.lamp-product-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:29px 32px;border-bottom:1px solid #353739}
+.lamp-product-id{font-size:10px;letter-spacing:.14em;color:#85878a;margin-bottom:18px}
+.lamp-feature-product h2{font-family:Manrope,sans-serif;font-size:clamp(26px,3vw,40px);font-weight:500;letter-spacing:-.05em;margin:0 0 13px}
+.lamp-product-description{font-size:13px;color:#a4a6a8;line-height:1.85;max-width:760px;margin:0}
+.lamp-state{font-size:9px;letter-spacing:.12em;border:1px solid #505255;padding:8px 10px;color:#c5c6c6;white-space:nowrap}
+.lamp-state.plan{color:#949697;border-color:#414345}
+.lamp-product-bottom{padding:20px 32px 28px}
+.lamp-feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.lamp-feature{background:#1e2022;border:1px solid #35383a;padding:19px;min-height:150px}
+.lamp-feature .count{font-size:10px;color:#777;letter-spacing:.12em;margin-bottom:16px}
+.lamp-feature h3{font-size:14px;font-weight:600;margin:0 0 10px}
+.lamp-feature p{font-size:12px;color:#96999b;line-height:1.7;margin:0}
+.lamp-status-note{border-top:1px solid #36383a;margin-top:20px;padding-top:15px;color:#85888b;font-size:11px;line-height:1.7}
+.lamp-about-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.lamp-about-card{background:#191b1d;border:1px solid #36393b;padding:29px;min-height:210px}
+.lamp-about-card .count{font-size:10px;color:#777;letter-spacing:.12em;margin-bottom:30px}
+.lamp-about-card h2{font-size:22px;font-weight:500;margin-bottom:14px;letter-spacing:-.035em}
+.lamp-about-card p{font-size:13px;color:#a1a4a6;line-height:1.8;margin:0}
+.lamp-about-banner{background:#e6e6e3;color:#111;padding:38px;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.lamp-about-banner strong{font-family:Manrope,sans-serif;font-size:clamp(25px,3.4vw,44px);font-weight:500;letter-spacing:-.06em}
+.lamp-about-banner span{font-size:10px;letter-spacing:.12em;color:#555}
+@media(max-width:700px){header{gap:9px}.logo{font-size:18px;letter-spacing:.15em}.right{gap:4px}.right button{font-size:10px}nav{display:flex;gap:12px;font-size:10px}nav .nav-action{font-size:10px}.lamp-nav-line{bottom:-19px}.lamp-page{padding-top:35px}.lamp-feature-grid{grid-template-columns:1fr}.lamp-product-top{padding:22px;flex-direction:column}.lamp-product-bottom{padding:16px 22px 22px}.lamp-feature{min-height:auto}.lamp-about-grid{grid-template-columns:1fr}.lamp-about-card{min-height:auto}.lamp-about-banner{padding:25px;flex-direction:column;align-items:flex-start}}
+@media(max-width:390px){.logo{font-size:16px}nav{gap:8px}nav .nav-action{font-size:9px}nav a{font-size:9px}.right button{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.lamp-page-track,.lamp-page-viewport,.lamp-nav-line{transition:none}}
+
+</style></head><body>
+<div class="shell"><header><a class="logo" href="#">L<span>Λ</span>MP</a><nav><a href="#home" data-t="home">Home</a><button class="nav-action" id="open-library" data-t="products">Products</button><button class="nav-action" id="open-about" data-t="about">About</button></nav><div class="right"><button id="lang" aria-label="Switch language">EN <span>⌄</span></button><span class="head-label" data-t="dev">IN DEVELOPMENT</span></div></header>
+<main id="home"><div class="intro"><div class="kicker"><i></i><span data-t="eyebrow">INDEPENDENT SYSTEMS PROJECT / 2026</span></div><h1 data-t="headline">Your space.<br><em>Your rules.</em></h1><p data-t="lead">A different approach to personal computing. Starting with a private home server — designed for control, simplicity and ownership.</p></div>
+<section class="stage showcase" aria-label="LAMP product showcase">
+<div class="stage-top"><span>01 / LΛMP HOME SERVER</span><span class="stage-dot"><i></i><span data-t="preview">INTERFACE CONCEPT</span></span></div>
+<div class="slide-window" id="slide-window"><div class="slide-track" id="slide-track">
+<div class="slide is-active" aria-label="Server interface preview"><div class="slide-layout"><div class="slide-caption"><span class="slide-number">01 / 03</span><strong data-t="slideOneTitle">A clearer way to run your home.</strong><small data-t="slideOneSub">The home server dashboard.</small></div><div class="server-panel"><aside><div class="mini-logo">LΛMP<span> / HOME</span></div><div class="side-item selected"><b>◫</b><span data-t="overview">Overview</span></div><div class="side-item"><b>▤</b><span data-t="files">Files</span></div><div class="side-item"><b>▧</b><span data-t="photos">Photos</span></div><div class="side-item"><b>⚙</b><span data-t="settings">Settings</span></div><div class="side-bottom"><i></i><span data-t="local">LOCAL NETWORK</span></div></aside><div class="dashboard"><div class="dash-heading"><div><small data-t="workspace">YOUR WORKSPACE</small><h2 data-t="welcome">Home, under your control.</h2></div><span class="dash-icon">⌘</span></div><div class="dash-grid"><div class="dash-card"><small data-t="system">SYSTEM</small><strong>LΛMP Home</strong><span class="dash-foot"><i></i><span data-t="status">Development preview</span></span></div><div class="dash-card"><small data-t="storage">STORAGE</small><div class="drive"><span>▰</span><span data-t="privateFiles">Private files</span></div><div class="drive-line"><span></span></div><span class="muted" data-t="storageNote">Local storage concept</span></div><div class="dash-card wide"><small data-t="activity">ACTIVITY</small><div class="activity-line"><span class="activity-icon">↗</span><span data-t="activityText">Your data. Your network. Your server.</span><span class="activity-time">LΛMP</span></div></div></div></div></div></div></div>
+<div class="slide" aria-label="Connected devices preview"><div class="slide-layout devices-layout"><div class="slide-caption"><span class="slide-number">02 / 03</span><strong data-t="slideTwoTitle">One server. Your devices.</strong><small data-t="slideTwoSub">A desktop server and LΛMP Connect on your phone.</small></div><div class="devices-scene"><div class="laptop"><div class="laptop-screen"><div class="device-osbar"><span>LΛMP <i>/ HOME</i></span><span>◌　◫　⚙</span></div><div class="device-oscontent"><small data-t="deviceServer">HOME SERVER</small><h3 data-t="deviceTitle">Your private space.</h3><div class="device-stats"><div><small data-t="deviceFiles">FILES</small><b>▤</b><span data-t="deviceStorage">Storage</span></div><div><small data-t="deviceNetwork">NETWORK</small><b>⌁</b><span data-t="deviceLocal">Local connection</span></div></div><div class="device-osfoot"><span class="online-dot"></span><span data-t="deviceActive">Connected locally</span></div></div></div><div class="laptop-base"></div></div><div class="connection-trace"><span></span><i></i></div><div class="phone"><div class="phone-top"><span class="phone-speaker"></span></div><div class="phone-inner"><div class="phone-brand">LΛMP <small>CONNECT</small></div><small data-t="phoneWorkspace">MY SERVER</small><h4>LΛMP Home</h4><div class="phone-status"><i></i><span data-t="phoneOnline">Connected</span></div><div class="phone-row"><span>▤</span><span data-t="files">Files</span><span>↗</span></div><div class="phone-row"><span>▧</span><span data-t="photos">Photos</span><span>↗</span></div><div class="phone-row"><span>⚙</span><span data-t="settings">Settings</span><span>↗</span></div><div class="phone-bottom"></div></div></div></div></div></div>
+<div class="slide" aria-label="Private storage preview"><div class="slide-layout storage-layout"><div class="slide-caption"><span class="slide-number">03 / 03</span><strong data-t="slideThreeTitle">Everything in one place.</strong><small data-t="slideThreeSub">Files and photos, managed on your hardware.</small></div><div class="storage-preview"><div class="storage-head"><span>LΛMP / <i data-t="files">Files</i></span><span>⌕　⋯</span></div><div class="storage-title"><small data-t="storageLibrary">YOUR LIBRARY</small><h3 data-t="storageHeadline">Your files. Your hardware.</h3></div><div class="storage-folders"><div><span>▤</span><strong data-t="documents">Documents</strong><small data-t="folderLabel">Folder</small></div><div><span>▧</span><strong data-t="photos">Photos</strong><small data-t="folderLabel">Folder</small></div><div><span>▥</span><strong data-t="backups">Backups</strong><small data-t="folderLabel">Folder</small></div></div><div class="storage-note"><i></i><span data-t="storagePrivacy">Designed for storage under your control</span></div></div></div></div>
+</div></div>
+<div class="stage-bottom"><span data-t="notScreenshot">DESIGN PREVIEW — NOT A SCREENSHOT OF THE CURRENT BUILD</span><span>© LΛMP 2026</span></div></section>
+<section class="projects" id="projects"><div class="projects-heading"><span data-t="portfolio">THE PROJECTS</span><span>02 / 03</span></div><div class="project-grid"><article class="project main-project"><div class="project-top"><span class="index">01 / AVAILABLE WHEN RELEASED</span><span class="pill" data-t="active">IN DEVELOPMENT</span></div><div class="project-main"><div class="glyph server-glyph">▥</div><div><h3>LΛMP Home Server OS</h3><p data-t="serverDesc">Your own private home server for files, photos and connected devices.</p></div></div><div class="project-bottom"><button class="link-button" data-modal="server" data-t="more">Project info <span>↗</span></button><button class="download" id="download" data-t="coming">Download — coming soon ↗</button></div></article>
+<article class="project"><div class="project-top"><span class="index">02 / FUTURE PROJECT</span><span class="pill muted-pill" data-t="planned">PLANNED</span></div><div class="project-main"><div class="glyph">⌘</div><div><h3>LΛMP Desktop OS</h3><p data-t="desktopDesc">A full desktop operating system. A future direction, not yet implemented.</p></div></div><div class="project-bottom"><button class="link-button" data-modal="desktop" data-t="more">Project info <span>↗</span></button><span class="unavailable" data-t="notAvailable">NOT AVAILABLE</span></div></article>
+<article class="project"><div class="project-top"><span class="index">03 / FUTURE PROJECT</span><span class="pill muted-pill" data-t="planned">PLANNED</span></div><div class="project-main"><div class="glyph shield-glyph">⬡</div><div><h3>LΛMP Antivirus</h3><p data-t="antivirusDesc">A security product concept. Planned for the future, not developed or released.</p></div></div><div class="project-bottom"><button class="link-button" data-modal="antivirus" data-t="more">Project info <span>↗</span></button><span class="unavailable" data-t="notAvailable">NOT AVAILABLE</span></div></article></div></section></main>
+<footer id="footer"><span class="footer-logo">LΛMP</span><span data-t="foot">Independent software project. Built with intention.</span><span>2026 © LΛMP</span></footer></div>
+<dialog id="library" aria-labelledby="library-title">
+<div class="modal-top"><span data-t="libraryEyebrow">LΛMP / PROJECT LIBRARY</span><button id="library-close" aria-label="Close">✕</button></div>
+<div class="library-heading"><div><h2 id="library-title" data-t="libraryTitle">Explore LΛMP.</h2><p data-t="libraryLead">Select a project to see what it is, what it is for, and what is available today.</p></div><span class="library-counter">01 — 03</span></div>
+<div class="library-grid">
+<button class="library-item" data-library="server"><span class="library-num">01 / ACTIVE</span><span class="library-icon">▥</span><strong>LΛMP Home Server OS</strong><span class="library-summary" data-t="libraryServer">A private home server for files, photos and your devices.</span><span class="library-arrow">VIEW DETAILS ↗</span></button>
+<button class="library-item" data-library="desktop"><span class="library-num">02 / PLANNED</span><span class="library-icon">⌘</span><strong>LΛMP Desktop OS</strong><span class="library-summary" data-t="libraryDesktop">A full desktop operating system, planned for the future.</span><span class="library-arrow">VIEW DETAILS ↗</span></button>
+<button class="library-item" data-library="antivirus"><span class="library-num">03 / PLANNED</span><span class="library-icon">⬡</span><strong>LΛMP Antivirus</strong><span class="library-summary" data-t="libraryAntivirus">A future standalone security product.</span><span class="library-arrow">VIEW DETAILS ↗</span></button>
+</div><div class="library-bottom"><span data-t="libraryFoot">PROJECT STATUS IS SHOWN TRANSPARENTLY</span><button id="library-dismiss" data-t="close">Close ↗</button></div></dialog>
+<dialog id="info"><div class="modal-top"><button class="back-link" id="back-library" data-t="backLibrary">← All projects</button><span id="modal-label">LΛMP / PROJECT DETAILS</span><button id="close" aria-label="Close">✕</button></div><h2 id="modal-title"></h2><p id="modal-text"></p><div class="detail-columns"><div><small data-t="purposeLabel">PURPOSE</small><p id="modal-purpose"></p></div><div><small data-t="featuresLabel">PLANNED FEATURES</small><p id="modal-features"></p></div></div><div class="modal-status" id="modal-status"></div><button class="modal-dismiss" id="dismiss" data-t="close">Close ↗</button></dialog><script>const translations={en:{home:'Home',products:'Products',about:'About',dev:'IN DEVELOPMENT',eyebrow:'INDEPENDENT SYSTEMS PROJECT / 2026',headline:'Your space.<br><em>Your rules.</em>',lead:'A different approach to personal computing. Starting with a private home server — designed for control, simplicity and ownership.',preview:'INTERFACE CONCEPT',overview:'Overview',files:'Files',photos:'Photos',settings:'Settings',local:'LOCAL NETWORK',workspace:'YOUR WORKSPACE',welcome:'Home, under your control.',system:'SYSTEM',status:'Development preview',storage:'STORAGE',privateFiles:'Private files',storageNote:'Local storage concept',activity:'ACTIVITY',activityText:'Your data. Your network. Your server.',notScreenshot:'DESIGN PREVIEW — NOT A SCREENSHOT OF THE CURRENT BUILD',portfolio:'THE PROJECTS',active:'IN DEVELOPMENT',planned:'PLANNED',serverDesc:'Your own private home server for files, photos and connected devices.',desktopDesc:'A full desktop operating system. A future direction, not yet implemented.',antivirusDesc:'A security product concept. Planned for the future, not developed or released.',more:'Project info ↗',coming:'Download — coming soon ↗',notAvailable:'NOT AVAILABLE',foot:'Independent software project. Built with intention.',close:'Close ↗',libraryEyebrow:'LΛMP / PROJECT LIBRARY',libraryTitle:'Explore LΛMP.',libraryLead:'Select a project to see what it is, what it is for, and what is available today.',libraryServer:'A private home server for files, photos and your devices.',libraryDesktop:'A full desktop operating system, planned for the future.',libraryAntivirus:'A future standalone security product.',libraryFoot:'PROJECT STATUS IS SHOWN TRANSPARENTLY',backLibrary:'← All projects',purposeLabel:'PURPOSE',featuresLabel:'PLANNED FEATURES'},lt:{home:'Pradžia',products:'Projektai',about:'Apie',dev:'KURIAMA',eyebrow:'NEPRIKLAUSOMAS SISTEMŲ PROJEKTAS / 2026',headline:'Tavo erdvė.<br><em>Tavo taisyklės.</em>',lead:'Kitoks požiūris į asmeninę kompiuteriją. Pradedame nuo privataus namų serverio — daugiau kontrolės, paprastumo ir nuosavybės.',preview:'SĄSAJOS KONCEPCIJA',overview:'Apžvalga',files:'Failai',photos:'Nuotraukos',settings:'Nustatymai',local:'VIETINIS TINKLAS',workspace:'TAVO ERDVĖ',welcome:'Namai tavo rankose.',system:'SISTEMA',status:'Kuriamas prototipas',storage:'SAUGYKLA',privateFiles:'Privatūs failai',storageNote:'Vietinės saugyklos koncepcija',activity:'VEIKLA',activityText:'Tavo duomenys. Tavo tinklas. Tavo serveris.',notScreenshot:'DIZAINO KONCEPCIJA — NE DABARTINĖS VERSIJOS EKRANO KOPIJA',portfolio:'PROJEKTAI',active:'KURIAMA',planned:'PLANUOJAMA',serverDesc:'Privatus namų serveris failams, nuotraukoms ir prijungtiems įrenginiams.',desktopDesc:'Visavertė kompiuterio operacinė sistema. Ateities projektas, dar neįgyvendintas.',antivirusDesc:'Saugumo programos koncepcija. Planuojama ateityje, dar nesukurta ir neišleista.',more:'Informacija ↗',coming:'Atsisiuntimas — netrukus ↗',notAvailable:'NEPASIEKIAMA',foot:'Nepriklausomas programinės įrangos projektas.',close:'Uždaryti ↗',libraryEyebrow:'LΛMP / PROJEKTŲ BIBLIOTEKA',libraryTitle:'Atrask LΛMP.',libraryLead:'Pasirink projektą ir sužinok, kam jis skirtas, kokias funkcijas planuojame ir kas veikia šiandien.',libraryServer:'Privatus namų serveris failams, nuotraukoms ir įrenginiams.',libraryDesktop:'Visavertė kompiuterio OS – ateities projektas.',libraryAntivirus:'Ateityje planuojama atskira saugumo programa.',libraryFoot:'PROJEKTŲ BŪSENA PATEIKIAMA ATVIRAI',backLibrary:'← Visi projektai',purposeLabel:'PASKIRTIS',featuresLabel:'PLANUOJAMOS FUNKCIJOS'}};
+Object.assign(translations.en,{slideOneTitle:'A clearer way to run your home.',slideOneSub:'The home server dashboard.',slideTwoTitle:'One server. Your devices.',slideTwoSub:'A desktop server and LΛMP Connect on your phone.',slideThreeTitle:'Everything in one place.',slideThreeSub:'Files and photos, managed on your hardware.',deviceServer:'HOME SERVER',deviceTitle:'Your private space.',deviceFiles:'FILES',deviceStorage:'Storage',deviceNetwork:'NETWORK',deviceLocal:'Local connection',deviceActive:'Connected locally',phoneWorkspace:'MY SERVER',phoneOnline:'Connected',storageLibrary:'YOUR LIBRARY',storageHeadline:'Your files. Your hardware.',documents:'Documents',backups:'Backups',folderLabel:'Folder',storagePrivacy:'Designed for storage under your control'});
+Object.assign(translations.lt,{slideOneTitle:'Namų serveris. Paprastai.',slideOneSub:'Namų serverio valdymo skydelis.',slideTwoTitle:'Vienas serveris. Tavo įrenginiai.',slideTwoSub:'Kompiuterio serveris ir LΛMP Connect telefone.',slideThreeTitle:'Viskas vienoje vietoje.',slideThreeSub:'Failai ir nuotraukos tavo įrangoje.',deviceServer:'NAMŲ SERVERIS',deviceTitle:'Tavo privati erdvė.',deviceFiles:'FAILAI',deviceStorage:'Saugykla',deviceNetwork:'TINKLAS',deviceLocal:'Vietinis ryšys',deviceActive:'Prisijungta vietiniame tinkle',phoneWorkspace:'MANO SERVERIS',phoneOnline:'Prisijungta',storageLibrary:'TAVO BIBLIOTEKA',storageHeadline:'Tavo failai. Tavo įranga.',documents:'Dokumentai',backups:'Atsarginės kopijos',folderLabel:'Aplankas',storagePrivacy:'Sukurta tavo valdomai saugyklai'});
+const modalData={en:{server:{title:'LΛMP Home Server OS',text:'The first active LΛMP project: a local home server OS for personal files, photos and device access. It is under development. A live ISO is being tested; this is not yet a public, installable release. Only this project is planned to have a download first.',status:'STATUS / ACTIVE DEVELOPMENT — NO PUBLIC DOWNLOAD YET'},desktop:{title:'LΛMP Desktop OS',text:'A future full desktop operating system with its own interface and security features. This is a planned project, not a completed or currently downloadable product. Work is focused on the Home Server OS first.',status:'STATUS / PLANNED — NOT IMPLEMENTED'},antivirus:{title:'LΛMP Antivirus',text:'A separate antivirus and protection product is part of the long-term roadmap. Threat detection, protection features and supported platforms remain plans; there is no working or released antivirus at this time.',status:'STATUS / PLANNED — NOT IMPLEMENTED'}},lt:{server:{title:'LΛMP Home Server OS',text:'Pirmasis aktyviai kuriamas LΛMP projektas — vietinė namų serverio OS asmeniniams failams, nuotraukoms ir įrenginiams. Sistema dar kuriama. Bandomas „Live ISO“, bet viešos diegiamos versijos dar nėra. Pirmiausia planuojama leisti atsisiųsti tik šią sistemą.',status:'BŪSENA / KURIAMA — VIEŠO ATSISIUNTIMO DAR NĖRA'},desktop:{title:'LΛMP Desktop OS',text:'Ateityje planuojama visavertė kompiuterio operacinė sistema su sava sąsaja ir saugumo funkcijomis. Šis projektas dar neįgyvendintas ir jo atsisiųsti negalima. Dabar visas dėmesys skiriamas namų serverio OS.',status:'BŪSENA / PLANUOJAMA — DAR NEĮGYVENDINTA'},antivirus:{title:'LΛMP Antivirus',text:'Atskira antivirusinė programa yra ilgalaikiuose planuose. Grėsmių aptikimas, apsaugos funkcijos ir palaikomos platformos kol kas tėra planai — veikiančios ar išleistos antivirusinės dar nėra.',status:'BŪSENA / PLANUOJAMA — DAR NEĮGYVENDINTA'}}};
+const details={
+en:{server:{purpose:'A dedicated operating system for running a home server and managing personal data on your own hardware.',features:'Private file and photo storage, device connection through LΛMP Connect, local network administration, and security monitoring. Availability depends on implementation and testing.'},desktop:{purpose:'A separate, general-purpose operating system intended for everyday computer use, not just hosting a server.',features:'Custom desktop, integrated applications, security controls, performance tools and a built-in assistant. These are ideas, not implemented features.'},antivirus:{purpose:'A future standalone security application for computers, separate from the Home Server OS.',features:'Threat monitoring, suspicious activity alerts, isolation and protective controls. No supported platforms or release date are confirmed.'}},
+lt:{server:{purpose:'Specializuota namų serverio operacinė sistema, skirta asmeniniams duomenims tvarkyti nuosavoje įrangoje.',features:'Privati failų ir nuotraukų saugykla, įrenginių prijungimas per LΛMP Connect, vietinio tinklo valdymas ir saugumo stebėjimas. Funkcijų prieinamumas priklausys nuo įgyvendinimo ir bandymų.'},desktop:{purpose:'Atskira kasdieniam darbui skirta kompiuterio operacinė sistema, ne tik serverio valdymui.',features:'Nuosavas darbalaukis, programos, saugumo valdymas, našumo įrankiai ir integruotas asistentas. Tai kol kas idėjos, o ne veikiančios funkcijos.'},antivirus:{purpose:'Ateityje planuojama savarankiška kompiuterių apsaugos programa, atskira nuo namų serverio OS.',features:'Grėsmių stebėjimas, perspėjimai apie įtartiną veiklą, izoliavimas ir apsaugos priemonės. Palaikomos platformos ir išleidimo data dar nepatvirtintos.'}}
+};
+let lang=localStorage.getItem('lamp-lang')==='lt'?'lt':'en';let currentModal=null;const dialog=document.getElementById('info');function apply(){document.documentElement.lang=lang;document.getElementById('lang').innerHTML=lang.toUpperCase()+' <span>⌄</span>';document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;if(translations[lang][k])el.innerHTML=translations[lang][k]});if(currentModal)showModal(currentModal)}function showModal(key){currentModal=key;const item=modalData[lang][key];document.getElementById('modal-title').textContent=item.title;document.getElementById('modal-text').textContent=item.text;document.getElementById('modal-status').textContent=item.status;document.getElementById('modal-purpose').textContent=details[lang][key].purpose;document.getElementById('modal-features').textContent=details[lang][key].features;if(!dialog.open)dialog.showModal()};document.getElementById('lang').addEventListener('click',()=>{lang=lang==='en'?'lt':'en';localStorage.setItem('lamp-lang',lang);apply()});document.querySelectorAll('[data-modal]').forEach(b=>b.addEventListener('click',()=>showModal(b.dataset.modal)));document.getElementById('close').onclick=()=>dialog.close();document.getElementById('dismiss').onclick=()=>dialog.close();dialog.addEventListener('close',()=>currentModal=null);document.getElementById('download').onclick=()=>showModal('server');apply();
+
+const library=document.getElementById('library');
+function openLibrary(){if(dialog.open)dialog.close();library.showModal()}
+document.getElementById('open-library').addEventListener('click',openLibrary);
+document.getElementById('open-about').addEventListener('click',()=>{if(!library.open)library.showModal();library.querySelector('#library-title').focus()});
+document.getElementById('library-close').onclick=()=>library.close();
+document.getElementById('library-dismiss').onclick=()=>library.close();
+document.querySelectorAll('[data-library]').forEach(b=>b.addEventListener('click',()=>{const key=b.dataset.library;library.close();showModal(key)}));
+document.getElementById('back-library').onclick=()=>{dialog.close();openLibrary()};
+document.querySelectorAll('a[href="#projects"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openLibrary()}));
+
+// Automatic showcase: always advance every three seconds while page is visible.
+// No mouse-hover pause, arrows, dots or manual controls.
+const slideTrack = document.getElementById('slide-track');
+const slides = Array.from(slideTrack.querySelectorAll('.slide'));
+let activeSlide = 0;
+let slideTimer = null;
+function goToSlide(next) {
+  activeSlide = (next + slides.length) % slides.length;
+  slideTrack.style.transform = `translate3d(-${activeSlide * 100}%, 0, 0)`;
+}
+function stopSlideTimer() {
+  if (slideTimer !== null) clearInterval(slideTimer);
+  slideTimer = null;
+}
+function startSlideTimer() {
+  stopSlideTimer();
+  if (document.hidden || slides.length < 2) return;
+  slideTimer = setInterval(() => goToSlide(activeSlide + 1), 3000);
+}
+document.addEventListener('visibilitychange', startSlideTimer);
+startSlideTimer();
+</script>
+<script>
+/* LAMP_NAV_V8 — injected after the original JS so its gallery timer remains intact. */
+(function(){
+  const nav=document.querySelector('header nav');
+  const home=document.getElementById('home');
+  const footer=document.getElementById('footer');
+  if(!nav||!home||!footer)return;
+  const buttons=[nav.querySelector('a[href="#home"]'),document.getElementById('open-library'),document.getElementById('open-about')];
+  if(buttons.some(x=>!x))return;
+  const viewport=document.createElement('div');viewport.className='lamp-page-viewport';
+  const track=document.createElement('div');track.className='lamp-page-track';
+  const products=document.createElement('section');products.className='lamp-page';products.id='lamp-products-page';
+  const about=document.createElement('section');about.className='lamp-page';about.id='lamp-about-page';
+  home.parentNode.insertBefore(viewport,home);track.append(home,products,about);viewport.append(track);
+  const line=document.createElement('span');line.className='lamp-nav-line';line.setAttribute('aria-hidden','true');nav.append(line);
+  let active=0;
+  const copy={
+    lt:{
+      productsEyebrow:'LΛMP / PRODUKTAI',productsTitle:'Viena vizija.<br><em>Trys kryptys.</em>',productsLead:'Nuo nuosavo namų serverio iki būsimos kompiuterio operacinės sistemos ir antivirusinės. Susipažink su LΛMP technologijomis, jų paskirtimi ir planais.',section:'PROJEKTŲ APŽVALGA',active:'AKTYVIAI KURIAMA',planned:'PLANUOJAMA',features:'TECHNOLOGIJOS IR FUNKCIJOS',
+      server:{desc:'LΛMP Home Server OS kuriama tam, kad kompiuteris taptų privačiu namų serveriu. Vienoje vietoje galėtum saugoti failus, nuotraukas, valdyti prijungtus įrenginius ir prisijungti per LΛMP Connect. Saugumo pagrindas – keli tarpusavyje veikiantys apsaugos sluoksniai, kuriuos dar reikia įgyvendinti ir patikrinti.',features:[['Privati saugykla','Failų ir nuotraukų saugojimas nuosavoje įrangoje; planuojami aplankai, šiukšlinė ir atkūrimas.'],['Daugiasluoksnis saugumas','Planuojama ugniasienė, prieigos kontrolė, saugūs ryšiai, žurnalai ir įspėjimai apie įtartiną veiklą.'],['Security AI','Numatoma vietinė įtartinų įvykių analizė ir pagalba reaguojant į galimas grėsmes.'],['LΛMP Shield','Planuojamas DNS pagrįstas reklamų ir žinomų kenkėjiškų domenų filtravimas namų tinkle.'],['LΛMP Connect','Telefono ir kompiuterio sąsaja serveriui, failams, įrenginiams ir saugumo nustatymams valdyti.'],['Patikimas diegimas','Planuojamas SSD diegiklis, duomenų išsaugojimas po perkrovimo, atsarginės kopijos ir atkūrimas.']],note:'BŪSENA: kuriamas ir testuojamas prototipas. Kai kurios funkcijos turi automatinius testus, tačiau pilna saugumo architektūra ir diegiklis dar nėra patvirtinti realiai įrangai.'},
+      desktop:{desc:'LΛMP Desktop OS – planuojama kasdienė kompiuterio operacinė sistema. Ji turėtų turėti minimalistinį darbalaukį, programas, failų tvarkyklę, personalizavimą ir vietinius AI įrankius, kurie padėtų suprasti bei valdyti kompiuterio veikimą.',features:[['Darbalaukis','Planuojama vieninga programų juosta, paleidimo meniu, failų tvarkyklė ir tamsi bei šviesi temos.'],['Performance AI','Numatoma našumo analizė, foninių procesų valdymas ir rekomendacijos žaidimams.'],['Security AI','Planuojamas sistemos veiklos stebėjimas ir įtartinų programų analizė.'],['AI Helper','Integruotas pagalbininkas nustatymams, failams ir kasdienėms užduotims.'],['Žaidimų centras','Numatoma žaidimų biblioteka ir suderinamų platformų integracijos.'],['Personalizavimas','Tapetai, ikonų stiliai ir nuoseklus dizainas visuose LΛMP įrenginiuose.']],note:'BŪSENA: ateities koncepcija. LΛMP Desktop OS dar nėra išleista ar patvirtinta kaip veikianti operacinė sistema.'},
+      antivirus:{desc:'LΛMP Antivirus – planuojama atskira apsaugos programa. Jos tikslas – aiškiai parodyti saugumo būseną, aptikti įtartiną veiklą ir suteikti vartotojui suprantamus valdymo įrankius, nepateikiant nepagrįstų apsaugos pažadų.',features:[['Failų tikrinimas','Planuojamas įtartinų failų ir programų tikrinimas pagal saugumo taisykles bei analizę.'],['Elgsenos stebėjimas','Numatoma neįprastų procesų ir veiksmų analizė.'],['Izoliavimas','Planuojama galimybė riboti ar izoliuoti grėsmes, jei tai palaikys operacinė sistema.'],['Tinklo apsauga','Įtartinų jungčių stebėjimas ir perspėjimai apie rizikingus ryšius.'],['Vietinis AI','Ateityje numatoma vietinė analizė, kuriai nereikėtų mokamų debesijos API.'],['Aiškus valdymas','Suprantami pranešimai, apsaugos istorija ir valdymo skydelis.']],note:'BŪSENA: tik planuojamas produktas. Nėra išleistos ar nepriklausomai patikrintos LΛMP antivirusinės.'},
+      aboutEyebrow:'LΛMP / APIE MUS',aboutTitle:'Kuriame technologijas.<br><em>Kurias valdai tu.</em>',aboutLead:'LΛMP – nepriklausomas programinės įrangos projektas. Tikslas – sukurti vientisą aplinką, kurioje asmeniniai duomenys, sistemos valdymas ir privatumas būtų aiškūs ir suprantami.',aboutCards:[['Nuo ko pradedame','Pirmiausia kuriama LΛMP Home Server OS – privati failų ir įrenginių valdymo sistema.'],['Kodėl tai svarbu','Norime, kad žmogus galėtų naudoti savo įrangą ir geriau suprastų, kur laikomi jo duomenys.'],['Kaip kuriame','Etapais: prototipas, testai, saugumo patikros, diegimo bandymai ir tik tada viešas leidimas.'],['Kas toliau','Ilgalaikė vizija apima LΛMP Desktop OS, atskirą antivirusinę ir bendrą LΛMP Connect patirtį.']],aboutBanner:'Your space. Your rules.',aboutBannerSub:'LΛMP / NEPRIKLAUSOMAS PROJEKTAS',aboutNote:'LΛMP vis dar kuriamas. Aprašyti planai nėra garantuotos ar jau veikiančios funkcijos.'
+    },
+    en:{
+      productsEyebrow:'LΛMP / PRODUCTS',productsTitle:'One vision.<br><em>Three directions.</em>',productsLead:'From a personal home server to a future desktop operating system and standalone antivirus. Explore the ideas, architecture and development plans behind LΛMP.',section:'PROJECT OVERVIEW',active:'IN DEVELOPMENT',planned:'PLANNED',features:'TECHNOLOGY & FEATURES',
+      server:{desc:'LΛMP Home Server OS is being developed to turn a personal computer into a private home server. It aims to bring files, photos, connected devices and LΛMP Connect into one manageable environment. A layered security architecture is planned and still requires implementation and validation.',features:[['Private storage','Personal file and photo storage on your own hardware, with planned folders, Trash and recovery.'],['Layered security','Planned firewall rules, access controls, secure connections, logging and suspicious-activity alerts.'],['Security AI','Planned local analysis of suspicious events and assistance with security decisions.'],['LΛMP Shield','Planned DNS-based filtering of ads and known malicious domains on the home network.'],['LΛMP Connect','Mobile and desktop interfaces for files, devices, server management and security settings.'],['Reliable installation','Planned SSD installer, persistent data, backup and recovery capabilities.']],note:'STATUS: prototype under development and automated testing. The complete security architecture and hardware installer are not yet validated for release.'},
+      desktop:{desc:'LΛMP Desktop OS is a future general-purpose operating system concept, aiming to combine a clean desktop, integrated apps, customization and local AI tools for managing everyday computing.',features:[['Desktop environment','Planned app dock, launcher, file manager and dark/light themes.'],['Performance AI','Planned performance insights, background process management and gaming recommendations.'],['Security AI','Planned system monitoring and suspicious application analysis.'],['AI Helper','Integrated assistance for settings, files and everyday tasks.'],['Gaming hub','A proposed game library and integrations with supported platforms.'],['Customization','Wallpapers, icon styles and a consistent experience across LΛMP devices.']],note:'STATUS: future concept. LΛMP Desktop OS has not been released or validated as a working operating system.'},
+      antivirus:{desc:'LΛMP Antivirus is a planned standalone protection application focused on understandable security status, suspicious activity detection and user control without unsupported protection claims.',features:[['File scanning','Planned scanning of suspicious files and applications.'],['Behavior monitoring','Proposed analysis of unusual processes and system activity.'],['Isolation','Planned restriction or quarantine where supported by the operating system.'],['Network protection','Suspicious connection monitoring and security alerts.'],['Local AI','Future on-device analysis without dependence on paid cloud APIs.'],['Clear controls','Readable notifications, protection history and a simple dashboard.']],note:'STATUS: concept only. No released or independently validated LΛMP Antivirus currently exists.'},
+      aboutEyebrow:'LΛMP / ABOUT',aboutTitle:'Technology designed.<br><em>For your control.</em>',aboutLead:'LΛMP is an independent software project exploring personal technology that is easier to understand, manage and own.',aboutCards:[['Where we start','LΛMP Home Server OS comes first: private files and connected device management.'],['Why it matters','We want people to understand where their data lives and have more control over their own hardware.'],['How we build','Prototype, test, security review, installation trials and only then a public release.'],['What comes next','Our longer-term vision includes Desktop OS, standalone Antivirus and the shared LΛMP Connect experience.']],aboutBanner:'Your space. Your rules.',aboutBannerSub:'LΛMP / INDEPENDENT PROJECT',aboutNote:'LΛMP is in development. Planned features are not promises of completed or verified functionality.'
+    }
+  };
+  function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+  function featureCard(item,i){return '<div class="lamp-feature"><div class="count">'+String(i+1).padStart(2,'0')+' / 06</div><h3>'+escapeHtml(item[0])+'</h3><p>'+escapeHtml(item[1])+'</p></div>';}
+  function productCard(key,index,t){const p=t[key],planned=key!=='server';const title=key==='server'?'LΛMP Home Server OS':key==='desktop'?'LΛMP Desktop OS':'LΛMP Antivirus';return '<article class="lamp-feature-product"><div class="lamp-product-top"><div><div class="lamp-product-id">0'+index+' / LΛMP</div><h2>'+title+'</h2><p class="lamp-product-description">'+escapeHtml(p.desc)+'</p></div><span class="lamp-state'+(planned?' plan':'')+'">'+(planned?t.planned:t.active)+'</span></div><div class="lamp-product-bottom"><div class="lamp-section-head"><span>'+t.features+'</span><span>06</span></div><div class="lamp-feature-grid">'+p.features.map(featureCard).join('')+'</div><div class="lamp-status-note">'+escapeHtml(p.note)+'</div></div></article>';}
+  function render(){const t=copy[document.documentElement.lang==='lt'?'lt':'en'];products.innerHTML='<div class="lamp-eyebrow">'+t.productsEyebrow+'</div><h1>'+t.productsTitle+'</h1><p class="lamp-lead">'+t.productsLead+'</p><div class="lamp-section-head"><span>'+t.section+'</span><span>01 — 03</span></div>'+productCard('server',1,t)+productCard('desktop',2,t)+productCard('antivirus',3,t);about.innerHTML='<div class="lamp-eyebrow">'+t.aboutEyebrow+'</div><h1>'+t.aboutTitle+'</h1><p class="lamp-lead">'+t.aboutLead+'</p><div class="lamp-about-grid">'+t.aboutCards.map((item,i)=>'<article class="lamp-about-card"><div class="count">0'+(i+1)+' / 04</div><h2>'+escapeHtml(item[0])+'</h2><p>'+escapeHtml(item[1])+'</p></article>').join('')+'</div><div class="lamp-about-banner"><strong>'+t.aboutBanner+'</strong><span>'+t.aboutBannerSub+'</span></div><p class="lamp-status-note">'+t.aboutNote+'</p>';measure();}
+  function moveLine(){const navRect=nav.getBoundingClientRect(),r=buttons[active].getBoundingClientRect();line.style.width=r.width+'px';line.style.transform='translateX('+(r.left-navRect.left)+'px)';buttons.forEach((b,i)=>{b.classList.toggle('lamp-current',i===active);if(i===active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});}
+  function measure(){viewport.style.height=[home,products,about][active].scrollHeight+'px';moveLine();}
+  function go(i){active=i;track.style.transform='translate3d(-'+(100*i)+'%,0,0)';measure();window.scrollTo({top:0,behavior:'smooth'});}
+  buttons.forEach((b,i)=>b.addEventListener('click',function(e){e.preventDefault();e.stopImmediatePropagation();go(i);},true));
+  document.getElementById('lang').addEventListener('click',()=>{render();requestAnimationFrame(measure);});
+  window.addEventListener('resize',measure);
+  window.addEventListener('load',measure);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(measure);
+  render();go(0);
+})();
+
+</script><script>
+/* LAMP_HOME_SERVER_ICON_V3 */
+(function() {
+  function changeIcon() {
+    var cards = document.querySelectorAll(".project");
+    for (var i = 0; i < cards.length; i++) {
+      var card = cards[i];
+      if (!card.textContent.includes("Home Server OS")) continue;
+
+      var icon = card.querySelector(".glyph");
+      if (!icon) continue;
+
+      icon.innerHTML = `<svg viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M5 23 L24 7 L43 23"/>
+        <path d="M10 22 V40 H38 V22"/>
+        <rect x="16" y="21" width="16" height="6" rx="1.8"/>
+        <rect x="16" y="29" width="16" height="6" rx="1.8"/>
+        <circle cx="20" cy="24" r="0.8" fill="currentColor" stroke="none"/>
+        <circle cx="20" cy="32" r="0.8" fill="currentColor" stroke="none"/>
+      </svg>`;
+      break;
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", changeIcon);
+  } else {
+    changeIcon();
+  }
+})();
+</script>
+<script>
+/* LAMP_ANTIVIRUS_SAFE_V2 */
+(function () {
+  function changeIcon() {
+    document.querySelectorAll('.project').forEach(function (card) {
+      if (!card.textContent.includes('Antivirus')) return;
+
+      var icon = card.querySelector('.glyph');
+      if (!icon) return;
+
+      icon.innerHTML = '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5L40 11V22C40 32 33 39 24 43C15 39 8 32 8 22V11Z"/><path d="M16 24L22 30L33 18"/></svg>';
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', changeIcon);
+  } else {
+    changeIcon();
+  }
+})();
+</script>
+<script>
+/* LAMP_ANTIVIRUS_REFINED_V1 */
+(function () {
+  function updateAntivirus() {
+    document.querySelectorAll('.project').forEach(function(card) {
+      if (!card.textContent.includes('Antivirus')) return;
+
+      var icon = card.querySelector('.glyph');
+      if (!icon) return;
+
+      icon.innerHTML = '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6L39 12V22C39 31 33 38 24 42C15 38 9 31 9 22V12Z"/><path d="M16 24L22 30L33 18"/></svg>';
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateAntivirus);
+  } else {
+    updateAntivirus();
+  }
+})();
+</script>
+
+
+<script>
+(function () {
+  function resizeDesktop() {
+    document.querySelectorAll('.project').forEach(function(card) {
+      if (!card.textContent.includes('Desktop OS')) return;
+
+      var icon = card.querySelector('.glyph');
+      if (!icon) return;
+
+      icon.innerHTML = '<svg aria-label="LAMP Desktop refined" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" style="width:28px!important;height:28px!important;max-width:28px!important;max-height:28px!important;display:block;margin:auto"><rect x="6" y="8" width="36" height="26" rx="2"/><path d="M6 29H42 M24 34V41 M16 41H32"/></svg>';
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', resizeDesktop);
+  } else {
+    resizeDesktop();
+  }
+})();
+</script>
+<style>
+/* LAMP_DESKTOP_FINAL */
+.project .glyph svg[data-lamp-desktop] {
+  width: 28px !important;
+  height: 28px !important;
+  max-width: 28px !important;
+  max-height: 28px !important;
+  display: block;
+  margin: auto;
+}
+</style>
+<script>
+(function () {
+  function applyDesktopIcon() {
+    document.querySelectorAll('.project').forEach(function(card) {
+      if (!card.textContent.includes('Desktop OS')) return;
+      var glyph = card.querySelector('.glyph');
+      if (!glyph) return;
+
+      glyph.innerHTML = '<svg data-lamp-desktop="1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width:28px!important;height:28px!important;display:block;margin:auto" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="36" height="26" rx="2"/><path d="M6 29H42 M24 34V41 M16 41H32"/></svg>';
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyDesktopIcon);
+  } else {
+    applyDesktopIcon();
+  }
+})();
+</script>
+<style>
+/* LAMP_DESKTOP_24PX */
+.project .glyph svg[data-lamp-desktop] {
+  width: 24px !important;
+  height: 24px !important;
+  max-width: 24px !important;
+  max-height: 24px !important;
+}
+</style>
+<script>
+(function() {
+  function resizeDesktop() {
+    document.querySelectorAll('.project').forEach(function(card) {
+      if (!card.textContent.includes('Desktop OS')) return;
+      var svg = card.querySelector('.glyph svg');
+      if (!svg) return;
+      svg.style.setProperty('width', '24px', 'important');
+      svg.style.setProperty('height', '24px', 'important');
+      svg.style.setProperty('max-width', '24px', 'important');
+      svg.style.setProperty('max-height', '24px', 'important');
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', resizeDesktop);
+  } else {
+    resizeDesktop();
+  }
+})();
+</script>
+</body></html>
+<script>
+(function(){
+  function updateIcon(){
+    document.querySelectorAll(".project").forEach(function(card){
+      if(!card.textContent.includes("Desktop OS")) return;
+      var icon = card.querySelector(".glyph");
+      if(!icon) return;
+      icon.innerHTML = '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="36" height="26" rx="2"/><path d="M6 29H42 M24 34V41 M16 41H32"/></svg>';
+    });
+  }
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",updateIcon);
+  }else{
+    updateIcon();
+  }
+})();
+</script>
